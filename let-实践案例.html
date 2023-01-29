@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container .item{
+            border:1px solid #000;
+            width: 40px;
+            height: 60px;
+            float: left;
+            margin:0 8px
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>点击切换颜色</h2>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+
+    <script>
+        var items = document.getElementsByClassName('item');
+
+        //正常通过
+        for(var i = 0; i < items.length; i++){
+            items[i].onclick = function(){
+
+                this.style.background = 'pink';
+            }
+        }
+
+        //报错：Uncaught TypeError: Cannot read properties of undefined (reading 'style')at items.<computed>.onclick
+        // for(var i = 0; i < items.length; i++){
+        //     items[i].onclick = function(){
+
+        //         items[i].style.background = 'pink';
+        //     }
+        // }
+
+        //正常通过
+        for(let i = 0; i < items.length; i++){
+            items[i].onclick = function(){
+
+                items[i].style.background = 'pink';
+            }
+        }
+    </script>
+</body>
+</html>
