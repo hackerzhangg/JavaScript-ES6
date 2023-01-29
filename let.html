@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let</title>
+</head>
+<body>
+    <script>
+        //1.let声明变量方式
+        let a;
+        let b;
+        let c,d;
+        let f=6, g='hello world', h=[];
+
+        //2.变量名不能重复声明，否则报错，变量已经存在
+        //报错：Uncaught SyntaxError: Identifier 'username' has already been declared
+        //let username = "张三";
+        //let username = "李四";
+
+        //3.块级作用域，全局，函数，eval
+        //例如: if else else if while for等等
+        {
+            let addressValue = "中国大陆";
+            console.log(addressValue);
+        }
+        //报错：Uncaught ReferenceError: addressValue is not defined
+        //console.log(addressValue);
+        
+        //4.不存在变量提升，在申明let变量之前使用let变量会执行异常
+        //number为undefined
+        //console.log(number);
+        //var number;
+        //执行异常不允许，报错：Uncaught ReferenceError: Cannot access 'number' before initialization
+        //console.log(number);
+        //let number;
+
+        //5.不影响作用域效果
+        {
+            let school = "清华大学";
+            function getSchoolData (){
+                console.log(school);
+            }
+            getSchoolData();
+        }
+    </script>
+</body>
+</html>
